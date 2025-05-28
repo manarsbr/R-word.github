@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plateforme de Traduction</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: #004080; color: white; padding: 1em; text-align: center; }
+    nav { text-align: center; margin: 1em; }
+    nav button { margin: 0 0.5em; padding: 0.5em 1em; }
+    main { max-width: 800px; margin: auto; padding: 2em; background: white; border-radius: 8px; }
+    .section { margin-bottom: 2em; }
+    footer { text-align: center; padding: 1em; font-size: 0.8em; color: #666; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 id="title">Plateforme de Traduction Algérienne</h1>
+</header>
+
+<nav>
+  <button onclick="setLang('fr')">Français</button>
+  <button onclick="setLang('en')">English</button>
+</nav>
+
+<main>
+  <div class="section">
+    <h2 id="welcome-title">Bienvenue !</h2>
+    <p id="welcome-text">
+      Réservez une session avec un traducteur professionnel algérien, selon vos besoins : juridique, médical, administratif…
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 id="booking-title">Réserver une séance</h2>
+    <form>
+      <label for="language-from" id="from-label">Langue source :</label><br />
+      <input type="text" id="language-from" name="language-from" placeholder="Ex : Français" /><br /><br />
+
+      <label for="language-to" id="to-label">Langue cible :</label><br />
+      <input type="text" id="language-to" name="language-to" placeholder="Ex : Anglais" /><br /><br />
+
+      <label for="specialty" id="specialty-label">Domaine :</label><br />
+      <select id="specialty" name="specialty">
+        <option value="juridique">Juridique</option>
+        <option value="medical">Médical</option>
+        <option value="administratif">Administratif</option>
+      </select><br /><br />
+
+      <button type="submit" id="submit-btn">Réserver</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Plateforme de Traduction Algérienne
+</footer>
+
+<script>
+  const translations = {
+    fr: {
+      title: "Plateforme de Traduction Algérienne",
+      "welcome-title": "Bienvenue !",
+      "welcome-text": "Réservez une session avec un traducteur professionnel algérien, selon vos besoins : juridique, médical, administratif…",
+      "booking-title": "Réserver une séance",
+      "from-label": "Langue source :",
+      "to-label": "Langue cible :",
+      "specialty-label": "Domaine :",
+      "submit-btn": "Réserver",
+    },
+    en: {
+      title: "Algerian Translation Platform",
+      "welcome-title": "Welcome!",
+      "welcome-text": "Book a session with a professional Algerian translator based on your needs: legal, medical, administrative…",
+      "booking-title": "Book a Session",
+      "from-label": "Source Language:",
+      "to-label": "Target Language:",
+      "specialty-label": "Field:",
+      "submit-btn": "Book Now",
+    }
+  };
+
+  function setLang(lang) {
+    const t = translations[lang];
+    for (const id in t) {
+      document.getElementById(id).textContent = t[id];
+    }
+    document.documentElement.lang = lang;
+  }
+</script>
+
+</body>
+</html>
